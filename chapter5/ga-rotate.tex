@@ -1,0 +1,190 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+
+
+%% \copyright 2022 William Emerison Six
+
+%% Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+%% The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,scrextend,commath,physics}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\qed}{\hfill$\blacksquare$}
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}{\end{newproof}\end{addmargin}\qed}
+% \newcommand{\expl}[1]{\text{\hfill[#1]}$}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\lhead{Proof of Rotor}
+\chead{William Emerison Six}
+\rhead{\today}
+
+% \maketitle
+
+\copyright 2023 William Emerison Six, licensed under the MIT License (at end of this document)
+
+\begin{problem}{5.5.6} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+
+  Rotate a general $\vb{u}$ in plane of rotation $\vb{i}$..
+\end{problem}
+
+
+
+\begin{proof}
+
+\textbf{Solve using hints from book }
+
+Let $\vb{u} =  \vb{u_{\parallel}} + \vb{u_{\perp}} $.
+
+
+Let $r e^{\vb{i} \theta} = a + b \vb{i}$.
+
+Let $r e^{\vb{i} \theta/2} = c + d \vb{i}$, for a $c$ and $d$ where $(c + d \vb{i})^2 = a + b \vb{i} $
+
+Let $\vb{i} = \vb{i_{\parallel}} \vb{i_{\perp}} $
+
+
+as $\vb{i}$ may be decomposed into $ \vb{i_{\parallel}} \triangleq \vb{u_{\parallel}}$ (the component of $\vb{u}$ parallel to the
+plane $\vb{i}$), and $\vb{i_{\perp}}$ (
+the vector in the plane of rotation $\vb{i}$ that
+is perpendicular to $\vb{u_{\parallel}}$ ), as all unit pseudoscalars in the same plane are the same.  Like the author, I will use the facts of Exercise 5.10 without justification.  The hardest part for me in deriving this proof was management of variable names. Defining the same value with two variable names,
+$ \vb{i_{\parallel}} \triangleq \vb{u_{\parallel}}$, was important to me in creating this proof so that between equation 8 and 9 I didn't try to reduce
+$\vb{u_{\parallel}}  \vb{i_{\parallel}}$ (i.e. $\vb{u_{\parallel}}  \vb{u_{\parallel}}$) to a scalar, yet still demonstracting in the proof that I using the communitive property of the geometric product for parallel vectors, and as
+such I was swapping their order without changing the sign.
+
+
+\begin{equation}
+-\vb{i} = \vb{i_{\perp}} \vb{i_{\parallel}}
+\end{equation}
+
+
+\begin{flalign}
+  r e^{- \vb{i} \theta/2} & = c + d \vb{-i} \\
+  & = c - d \vb{i}
+\end{flalign}
+
+
+
+\begin{flalign}
+  \vb{v} & \triangleq \vb{u_{\parallel}} \vb{e}^{\vb{i} \theta} + \vb{u_{\perp}} \\
+  & = \vb{u_{\parallel}} \vb{e}^{\vb{i} \theta/2} e^{\vb{i} \theta/2} + \vb{u_{\perp}} \vb{e}^{- \vb{i} \theta/2} \vb{e}^{\vb{i} \theta/2} \\
+  & = \vb{u_{\parallel}} (c + d \vb{i}) (c + d \vb{i}) + \vb{u_{\perp}} (c - d \vb{i})  (c + d \vb{i}) \\
+   & =\vb{u_{\parallel}} (c + d \vb{i_{\parallel}} \vb{i_{\perp}}) (c + d \vb{i}) + \vb{u_{\perp}} (c - d \vb{i_{\parallel}} \vb{i_{\perp}})  (c + d \vb{i}) \\
+  & = (c \vb{u_{\parallel}} + d \vb{u_{\parallel}}  \vb{i_{\parallel}} \vb{i_{\perp}}) (c + d \vb{i}) +  (c \vb{u_{\perp}} - d \vb{u_{\perp}} \vb{i_{\parallel}} \vb{i_{\perp}})  (c + d \vb{i}) \\
+  & = (c \vb{u_{\parallel}} + d \vb{i_{\parallel}} \vb{u_{\parallel}} \vb{i_{\perp}}) (c + d \vb{i}) +  (c \vb{u_{\perp}} + d \vb{i_{\parallel}} \vb{u_{\perp}} \vb{i_{\perp}})  (c + d \vb{i}) \\
+  & = (c \vb{u_{\parallel}} - d \vb{i_{\parallel}} \vb{i_{\perp}} \vb{u_{\parallel}}) (c + d \vb{i}) +  (c \vb{u_{\perp}} - d \vb{i_{\parallel}} \vb{i_{\perp}} \vb{u_{\perp}})  (c + d \vb{i}) \\
+  & = (c  - d \vb{i_{\parallel}} \vb{i_{\perp}}) \vb{u_{\parallel}} (c + d \vb{i}) +  (c - d \vb{i_{\parallel}} \vb{i_{\perp}}) \vb{u_{\perp}}   (c + d \vb{i}) \\
+  & = (c  - d \vb{i}) \vb{u_{\parallel}} (c + d \vb{i}) +  (c - d \vb{i}) \vb{u_{\perp}}   (c + d \vb{i}) \\
+  & = e^{- \vb{i} \theta/2} \vb{u_{\parallel}} e^{\vb{i} \theta/2} +  e^{- \vb{i} \theta/2} \vb{u_{\perp}}   e^{\vb{i} \theta/2} \\
+  & = e^{- \vb{i} \theta/2} \vb{u} e^{\vb{i} \theta/2}
+\end{flalign}
+
+
+
+\end{proof}
+
+\begin{proof}
+
+\textbf{Solve using project and reject, providing a different geometric interpretation }
+
+
+
+\end{proof}
+
+Instead of declaring $\vb{i} = \vb{i_{\parallel}} \vb{i_{\perp}} $, instead let's construct
+the plane by giving two unit vectors in the plane, $a$ and $b$, knowing that we want to rotate
+the plane from $a$ to $b$ without concerning ourselves with the number of degrees.
+
+From Chapter 7
+
+\begin{equation}
+  \vb{u_{\parallel}} \triangleq P_B(\vb{u}) \triangleq (\vb{u} \cdot \vb{B}) / \vb{B}
+\end{equation}
+
+\begin{equation}
+  \vb{u_{\perp}} \triangleq (\vb{u} \wedge \vb{B}) / \vb{B}
+\end{equation}
+
+
+
+\begin{flalign}
+  \vb{v} & \triangleq \vb{u_{\parallel}} \vb{e}^{\vb{i} \theta} + \vb{u_{\perp}} \\
+  & = \vb{u_{\parallel}} \vb{a} \vb{b} + \vb{u_{\perp}} \\
+  & = P_B(\vb{u}) \vb{a} \vb{b} + \vb{u_{\perp}} \\
+  & = (\vb{u} \cdot (\vb{a} \wedge \vb{b}) (\vb{a} \wedge \vb{b})^{-1}) \vb{a} \vb{b} + (\vb{u} \wedge \vb{a} \wedge \vb{b}) (\vb{a} \wedge \vb{b})^{-1} \\
+  & = (\vb{u} \cdot (\vb{a} \wedge \vb{b}) (\vb{a} \wedge \vb{b})^{-1}) \vb{a} \vb{b} + (\vb{u} (\vb{a} \wedge \vb{b}) - (\vb{u} \cdot (\vb{a} \wedge \vb{b})))  (\vb{a} \wedge \vb{b})^{-1} \\
+  & = (\vb{u} \cdot (\vb{a} \wedge \vb{b}) (\vb{a} \wedge \vb{b})^{-1}) \vb{a} \vb{b} + \vb{u}  - (\vb{u} \cdot (\vb{a} \wedge \vb{b}))  (\vb{a} \wedge \vb{b})^{-1} \\
+  & = \vb{u}  + (\vb{u} \cdot (\vb{a} \wedge \vb{b}))  (\vb{a} \wedge \vb{b})^{-1} (\vb{a} \vb{b} - 1) \\
+  & = \vb{u}  + P_B(\vb{u}) (\vb{a} \vb{b} - 1) \label{eq:1}\\
+  & = \vb{u}  + (P_B(\vb{u}) \vb{a} \vb{b} - P_B(\vb{u})) \label{eq:2}
+\end{flalign}
+
+
+Equation 24 Gave me some insights as to multivectors.  When I first thought about $ab -1$, I thought
+$ab$ is a scalar added to a bivector, and from that result subtract 1.  Should I do the subtraction?  And then I thought, no,
+$ab - 1$ should be thought of not as a value to be reduced, but instead a list of implicitly-defined
+functions to be applied in parallel (i.e. parallel like in circuits, not parallel as in vectors) to $P_B(u)$, after which the results of applying those implict functions
+to $P_B(u)$ are then
+summed, taking the signs into account of course.
+
+
+Equation 25 has an interesting geometric interpretation to me because it means, looking at figure 5.18
+of the book, in the plane of rotation, draw a straight vector starting from the projection of $\vb{u}$ onto the plane
+to its position after rotation within the plane, placing the head of the vector there.  That vector
+represens an amount of ``translation'' that needs to be added to $\vb{u}$ to make $\vb{v}$.  I like
+this proof because I understand rotation as a translation of an offset more than I do for 2 reflections, which
+I still don't really understand. Also I still don't know how to take the dot project of a vector with a bivector,
+as in the book I don't think it has been defined by chapter 5,
+but given that I found the formula for project and reject in chapter 7, I was still able to make my own
+formula just by using properties of the geometric product, and learn some things along the way.
+
+\newpage
+
+\textbf{License of proof }
+
+\copyright 2023 William Emerison Six
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\end{document}
